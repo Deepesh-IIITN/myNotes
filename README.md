@@ -1,3 +1,5 @@
 # myNotes
 
-<h3 style="color:green">In Development</h3>
+<div align="center">
+    <img src="example.svg" width="400" height="400" alt="css-in-readme">
+</div>
