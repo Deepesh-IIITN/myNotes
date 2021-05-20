@@ -18,7 +18,7 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-    res.send("this is signup page");
+    res.send("this is Signup page");
 });
 
 app.listen(PORT , function(){
