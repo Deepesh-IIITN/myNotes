@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
-dotenv.config({path: './config.env'});
+dotenv.config({
+    path: './config.env'
+});
 
 require('./db/conn');
 //const User = require('./model/userSchema');
@@ -24,6 +26,6 @@ app.get("/signup", (req, res) => {
     res.send("this is Signup page");
 });
 
-app.listen(PORT , function(){
-    console.log('server is started '+ PORT);
+app.listen(PORT, function () {
+    console.log('server is started ' + PORT);
 });
