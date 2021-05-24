@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
           return res.status(422).json({error : "user already exists"});
            }
            const user = new User({name : name, email : email, password : password, cpassword : cpassword});
-      user.save().then((success) => {res.status(201).json({message:"successfully registered"})}).catch((error) => {res.status(500).json({error})});
+           user.save().then((success) => {res.status(201).json({message : "you have successfully registered!!"})}).catch((error) => {res.status(500).json({error : "something went wrong!!"})});
 
       }).catch((err)=>{console.log(err)});
 
