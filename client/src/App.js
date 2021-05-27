@@ -1,10 +1,15 @@
 import React from "react";
-
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import "./App.css";
 const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Navbar />
+      <Signup />
+    </>
   );
 };
 

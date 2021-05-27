@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+body{
+  @import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@700&display=swap');
+  font-family: 'Piazzolla', serif;
+}
+nav{
+  background-color:#5afc55;
+  /* #5fff57 */
+}
+.nav-link{
+  font-weight:800;
+  font-size:17px;
+}
+.navbar-brand{
+  font-weight:900;
+  color:#100835;
+  font-size:27px;
+}
+.note-box{ 
+  width:100%;
+  border-radius:10px;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 14px 5px rgba(95,255,87,1);
+  -moz-box-shadow: 0px 0px 14px 5px rgba(95,255,87,1);
+  box-shadow: 0px 0px 14px 5px rgba(95,255,87,1);
+}
+.note-box .tittle{
+  min-height:30px;
+  border-radius:10px 10px 0px 0px;
+  padding:15px 15px 0px 15px;
+}
+.note-box .content{
+  min-height:110px;
+  border-radius:0px 0px 10px 10px;
+  padding:0px 15px 15px 15px;
+}
+.note-box .tittle,.note-box .content{
+  resize: none;
+  width:100%;
+  outline: none;
+  border:none;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.note-box .plus-sign{
+  position:absolute;
+  bottom : -8px;
+  right:-13px;
+  height: 30px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.note{
+  background:#98ff94;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(95,255,87,1);
+-moz-box-shadow: 0px 0px 5px 3px rgba(95,255,87,1);
+box-shadow: 0px 0px 5px 3px rgba(95,255,87,1);
 }
