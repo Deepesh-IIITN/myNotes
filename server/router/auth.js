@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
 require('../db/conn');
 
 const User = require('../model/userSchema');
@@ -93,6 +95,12 @@ router.post('/login', async (req, res) => {
                     error: "email or password is incorrect"
                });
           }
+          const token = await userData.generateAuthToken();
+          console.log(token);
+          res.cookie("userToken", token, {
+               expires: new Date(Date.now() + 60000000),
+               httpOnly: true
+          });
           const isMatched = await bcrypt.compare(password, userData.password);
           if (isMatched) {
                return res.status(200).json({
