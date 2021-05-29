@@ -1,38 +1,19 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div>
-        <div className="container">
+      <div className="home">
+        <div className="container pt-5">
           <div className="row">
-            <div className="col-lg-4 col-md-7 col-sm-9 col-10 m-auto d-flex justify-content-center">
-              <div className="mt-5 note-box">
-                <form>
-                  <textarea
-                    placeholder="Tittle"
-                    rows={1}
-                    className="tittle"
-                    name="tittle"
-                  ></textarea>
-                  <hr />
-                  <textarea
-                    placeholder="note"
-                    className="content"
-                    name="note"
-                  ></textarea>
-                </form>
-                <img
-                  src="https://www.clipartmax.com/png/middle/2-28449_large-add-symbol-clipart-plus-sign-transparent-background.png"
-                  className="img-fluid plus-sign"
-                />
+            <div className="col-md-12">
+              <div className="text-center mt-5">
+                <h1 className="pt-5">Welcome to myNotes.com</h1>
+                <h3>Here you can create you Notes</h3>
+                <NavLink className="btn btn-success" to="/login">
+                  Login
+                </NavLink>
               </div>
-            </div>
-          </div>
-          <div className="row m-5">
-            <div className="col-lg-3 col-md-4 p-2 col-sm-2 note">
-              <h5>About</h5>
-              <p>hii all guys how are you</p>
             </div>
           </div>
         </div>

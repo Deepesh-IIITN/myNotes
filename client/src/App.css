@@ -1,55 +1,101 @@
-body{
+body {
   @import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@700&display=swap');
   font-family: 'Piazzolla', serif;
 }
-nav{
-  background-color:#5afc55;
-  /* #5fff57 */
-}
-.nav-link{
-  font-weight:800;
-  font-size:17px;
-}
-.navbar-brand{
-  font-weight:900;
-  color:#100835;
-  font-size:27px;
-}
-.note-box{ 
-  width:100%;
-  border-radius:10px;
-  position: relative;
-  -webkit-box-shadow: 0px 0px 14px 5px rgba(95,255,87,1);
-  -moz-box-shadow: 0px 0px 14px 5px rgba(95,255,87,1);
-  box-shadow: 0px 0px 14px 5px rgba(95,255,87,1);
-}
-.note-box .tittle{
-  min-height:30px;
-  border-radius:10px 10px 0px 0px;
-  padding:15px 15px 0px 15px;
-}
-.note-box .content{
-  min-height:110px;
-  border-radius:0px 0px 10px 10px;
-  padding:0px 15px 15px 15px;
-}
-.note-box .tittle,.note-box .content{
-  resize: none;
-  width:100%;
-  outline: none;
-  border:none;
-  
+
+nav {
+  background-color: #deffdd;
+  /* #b9ffb7 */
 }
 
-.note-box .plus-sign{
-  position:absolute;
-  bottom : -8px;
-  right:-13px;
+.nav-link {
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.navbar-brand {
+  font-weight: 900;
+  color: #100835;
+  font-size: 27px;
+}
+
+.note-box {
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 14px 5px rgba(185, 255, 183, 1);
+  -moz-box-shadow: 0px 0px 14px 5px rgba(185, 255, 183, 1);
+  box-shadow: 0px 0px 14px 5px rgba(185, 255, 183, 1);
+}
+
+.note-box .tittle {
+  min-height: 30px;
+  border-radius: 10px 10px 0px 0px;
+  padding: 15px 15px 0px 15px;
+}
+
+.note-box .content {
+  min-height: 110px;
+  border-radius: 0px 0px 10px 10px;
+  padding: 0px 15px 15px 15px;
+}
+
+.note-box .tittle, .note-box .content {
+  resize: none;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.note-box .plus-sign {
+  position: absolute;
+  bottom: -8px;
+  right: -13px;
   height: 30px;
 }
-.note{
-  background:#98ff94;
-  -webkit-box-shadow: 0px 0px 5px 3px rgba(95,255,87,1);
--moz-box-shadow: 0px 0px 5px 3px rgba(95,255,87,1);
-box-shadow: 0px 0px 5px 3px rgba(95,255,87,1);
+
+.note {
+  background: #98ff94;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(185, 255, 183, 1);
+  -moz-box-shadow: 0px 0px 5px 3px rgba(185, 255, 183, 1);
+  box-shadow: 0px 0px 5px 3px rgba(185, 255, 183, 1);
+}
+
+.signup-box {
+  margin-top: 3rem;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(185, 255, 183, 1);
+  -moz-box-shadow: 0px 0px 5px 3px rgba(185, 255, 183, 1);
+  box-shadow: 0px 0px 5px 3px rgba(185, 255, 183, 1);
+}
+
+.error-box {
+  margin-top: 12rem;
+  position: relative;
+}
+
+.error404 {
+  font-size: 10rem;
+  position: absolute;
+  opacity: 0.1;
+  z-index: -1;
+  top: -50%;
+  right: 30%;
+}
+
+@media (max-width: 767.98px) {
+  .signup-box {
+    margin-top: 1rem;
+  }
+  .signup-box img {
+    width: 0px;
+  }
+  .error-box {
+    margin-top: 6rem;
+  }
+  .error404 {
+    top: -30%;
+    right: 30%;
+  }
 }
