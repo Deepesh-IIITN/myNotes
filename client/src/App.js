@@ -10,6 +10,7 @@ import ErrorPage from "./components/ErrorPage";
 import "./App.css";
 const App = () => {
   const [userid, setuserID] = useState("");
+  const [notesArr, setnotesArr] = useState([]);
   const [isUserLoggedIn, setisUserLoggedIn] = useState(false);
 
   const callForUserData = async () => {
@@ -24,7 +25,9 @@ const App = () => {
       });
       const userData = await res.json();
       setuserID(userData._id);
-      console.log(userData);
+      // setuserID(userData.notes);
+      // alert(userData.notes[0].tittle);
+      setnotesArr(userData.notes);
       if (res.status === 200) {
         setisUserLoggedIn(true);
       }
@@ -45,7 +48,7 @@ const App = () => {
         </Route>
 
         <Route path="/notes">
-          <Notes userID={userid} />
+          <Notes userID={userid} notesArr={notesArr} />
         </Route>
         <Route path="/login">
           <Login isLoggedIn={isUserLoggedIn} />

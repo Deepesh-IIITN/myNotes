@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 const Notes = (probs) => {
   const history = useHistory();
+  const [allNotes, setallNotes] = useState([]);
   const callNotesPage = async () => {
     try {
       const res = await fetch("/notes", {
@@ -13,6 +14,7 @@ const Notes = (probs) => {
         credentials: "include",
       });
       const data = await res.json();
+      setallNotes(data.notes);
       console.log(data);
       if (!res.status === 200) {
         throw new Error(res.error);
@@ -42,10 +44,29 @@ const Notes = (probs) => {
     });
     const data = await res.json();
     if (!(data.status === 200)) {
+      callNotesPage();
+      setFormData({ tittle: "", content: "" });
     } else {
       window.alert("something went wrong");
     }
   };
+  const arr = [1, 2, 3];
+  function notesFunc() {
+    return (
+      <>
+        {allNotes.map((x) => (
+          <>
+            <div className="col-lg-3 col-md-4 col-sm-6 col-12 mt-4">
+              <div className="note">
+                <h5>{x.tittle}</h5>
+                <p>{x.content}</p>
+              </div>
+            </div>
+          </>
+        ))}
+      </>
+    );
+  }
   return (
     <>
       <div>
@@ -53,13 +74,14 @@ const Notes = (probs) => {
           <div className="row">
             <div className="col-lg-4 col-md-7 col-sm-9 col-10 m-auto d-flex justify-content-center">
               <div className="mt-5 note-box">
-                <form method="POST">
+                <form method="POST" id="noteForm">
                   <textarea
                     placeholder="Tittle"
                     rows={1}
                     className="tittle"
                     name="tittle"
                     onChange={inputHandler}
+                    value={formData.tittle}
                   ></textarea>
                   <hr />
                   <textarea
@@ -67,6 +89,7 @@ const Notes = (probs) => {
                     className="content"
                     name="content"
                     onChange={inputHandler}
+                    value={formData.content}
                   ></textarea>
                 </form>
                 <img
@@ -78,12 +101,7 @@ const Notes = (probs) => {
               </div>
             </div>
           </div>
-          <div className="row m-5">
-            <div className="col-lg-3 col-md-4 p-2 col-sm-2 note">
-              <h5>About</h5>
-              <p>hii all guys how are you</p>
-            </div>
-          </div>
+          <div className="row m-5">{notesFunc()}</div>
         </div>
       </div>
     </>

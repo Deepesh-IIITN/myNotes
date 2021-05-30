@@ -28,7 +28,11 @@ const userSchema = new mongoose.Schema({
   ],
   notes: [
     {
-      note: {
+      tittle: {
+        type: "string",
+        required: true,
+      },
+      content: {
         type: "string",
         required: true,
       },
@@ -37,12 +41,11 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre("save", async function (next) {
-  console.log("in middle");
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 12);
     this.cpassword = await bcrypt.hash(this.cpassword, 12);
   }
-  console.log("above next");
+
   next();
 });
 
@@ -64,10 +67,11 @@ userSchema.methods.generateAuthToken = async function () {
     console.log(err);
   }
 };
-userSchema.methods.saveusernotes = async function (tittle) {
+userSchema.methods.saveusernotes = async function (tittle, content) {
   try {
     this.notes = this.notes.concat({
-      note: tittle,
+      tittle: tittle,
+      content: content,
     });
     await this.save();
   } catch (err) {

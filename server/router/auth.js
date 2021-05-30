@@ -133,7 +133,7 @@ router.post("/saveNotes", async (req, res) => {
     // });
     // return res.status(422).json(user);
     //await user.save();
-    await userData.saveusernotes(tittle);
+    await userData.saveusernotes(tittle, content);
     res.status(201).json({
       message: "you have successfully created the note!!",
     });
