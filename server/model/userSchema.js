@@ -26,13 +26,23 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
+  notes: [
+    {
+      note: {
+        type: "string",
+        required: true,
+      },
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {
+  console.log("in middle");
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 12);
     this.cpassword = await bcrypt.hash(this.cpassword, 12);
   }
+  console.log("above next");
   next();
 });
 
@@ -50,6 +60,16 @@ userSchema.methods.generateAuthToken = async function () {
     });
     await this.save();
     return token;
+  } catch (err) {
+    console.log(err);
+  }
+};
+userSchema.methods.saveusernotes = async function (tittle) {
+  try {
+    this.notes = this.notes.concat({
+      note: tittle,
+    });
+    await this.save();
   } catch (err) {
     console.log(err);
   }

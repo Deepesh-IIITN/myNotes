@@ -1,6 +1,35 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-const Login = () => {
+import { React, useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+const Login = (props) => {
+  const history = useHistory();
+
+  if (props.isLoggedIn) {
+    history.push("/");
+  }
+
+  const [formData, getData] = useState({ email: "", password: "" });
+
+  const inputHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    getData({ ...formData, [name]: value });
+  };
+  const postData = async (event) => {
+    event.preventDefault();
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    const data = await res.json();
+    if (data.status === 422 || !data) {
+      window.alert("invalid email or password");
+    } else {
+      window.alert(" Login successful");
+      window.location.reload();
+      history.push("/");
+    }
+  };
   return (
     <>
       <div>
@@ -18,31 +47,39 @@ const Login = () => {
                 <div className="col-md-6 p-4">
                   <h1 className="text-md-left text-center">Login</h1>
                   <hr />
-                  <form>
+                  <form method="POST" autoComplete="off">
                     <div className="form-group">
-                      <label for="login_email">Email address</label>
+                      <label for="email">Email address</label>
                       <input
                         type="email"
                         className="form-control"
-                        id="login_email"
-                        name="login_email"
+                        id="email"
+                        name="email"
                         aria-describedby="emailHelp"
                         placeholder="Enter email"
+                        value={formData.email}
+                        onChange={inputHandler}
                       />
                     </div>
                     <div className="form-group">
-                      <label for="login_password">Password</label>
+                      <label for="password">Password</label>
                       <input
                         type="password"
                         className="form-control"
-                        name="login_password"
-                        id="login_password"
+                        name="password"
+                        id="password"
                         placeholder="Password"
+                        onChange={inputHandler}
+                        value={formData.password}
                       />
                     </div>
 
                     <div className="">
-                      <button type="submit" className="btn btn-success">
+                      <button
+                        type="submit"
+                        className="btn btn-success"
+                        onClick={postData}
+                      >
                         Sign in
                       </button>
                     </div>

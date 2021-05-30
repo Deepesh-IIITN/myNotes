@@ -1,7 +1,10 @@
-import { React, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-const Signup = () => {
+const Signup = (props) => {
   const history = useHistory();
+  if (props.isLoggedIn) {
+    history.push("/");
+  }
   const [formData, getData] = useState({
     name: "",
     email: "",
