@@ -6,7 +6,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Notes from "./components/Notes";
 import ErrorPage from "./components/ErrorPage";
-
+import Logout from "./components/Logout";
 import "./App.css";
 const App = () => {
   const [userid, setuserID] = useState("");
@@ -56,7 +56,9 @@ const App = () => {
         <Route path="/signup">
           <Signup isLoggedIn={isUserLoggedIn} />
         </Route>
-        <Route path="/logout"></Route>
+        <Route path="/logout">
+          <Logout />
+        </Route>
         <Route components>
           <ErrorPage />
         </Route>

@@ -154,4 +154,9 @@ router.get("/getdata", GetUserConfirm, (req, res) => {
 });
 
 ///////////////////////////////////////////////////
+router.get("/logout", (req, res) => {
+  res.clearCookie("ut", { path: "/" });
+  res.status(200).send("successful");
+});
+///////////////////////////////////////////////////
 module.exports = router;
