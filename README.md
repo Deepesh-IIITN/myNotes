@@ -9,5 +9,5 @@
 <ul>
 <li><h5>ClientSide: </h5>Reactjs, css, HTML, Bootstrap</li>
 <li><h5>ServerSide: </h5>Nodejs, Expressjs</li>
-<li><h5>ServerSide: </h5>MongoDB, Mongoose</li>
+<li><h5>Database: </h5>MongoDB, Mongoose</li>
 </ul>
